@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: grafana-pod-rs
+spec: 
+  replicas: 3
+  selector:
+    matchExpressions:
+      - { key: env, operator: In, values: [Developer] }
+  template:
+    metadata:
+      name: grafana-pod-rs
+      labels:
+        env: Developer
+        region: In
+    spec:
+      containers:
+      - name: grafana-con
+        image: vimal13/grafana

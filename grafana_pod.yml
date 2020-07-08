@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: grafana-pod
+  labels:
+    env: dev
+spec:
+  containers:
+  - name: grafana-con
+    image: vimal13/grafana 

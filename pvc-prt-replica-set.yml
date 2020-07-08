@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: prometheus-pod-rs
+spec: 
+  replicas: 3
+  selector:
+    matchExpressions:
+      - { key: env, operator: In, values: [Developer] }
+  template:
+    metadata:
+      name: prometheus-pod-rs
+      labels:
+        env: Developer
+        region: In
+    spec:
+      containers:
+      - name: prometheus-con
+        image: vimal13/prometheus
+        volumeMounts:
+              - name: prometheus-pvc
+                mountPath: /root/kube_code/prom_graf
+      volumes:
+        - name: prometheus-pvc
+          persistentVolumeClaim:
+              claimName: prometheus-pvc 
+ 
+
+ 

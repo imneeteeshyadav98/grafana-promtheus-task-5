@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - svc-promethaus.yml
+  - prt-svc.yml
+  - pvc_prt.yml
+  - svc-grafana.yml
+  - grafana-svc.yml
+  - grafana-pvc.yml

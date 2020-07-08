@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: prometheus-pod
+  labels:
+    env: dev
+spec:
+  containers:
+  - name: prometheus-con
+    image: vimal13/prometheus
